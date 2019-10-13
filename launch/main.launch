@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="ros_rc_car" name="servo_controller" type="servo_controller.py" output="screen"/>
+</launch>
