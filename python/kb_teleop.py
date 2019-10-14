@@ -19,7 +19,7 @@ def teleoperator():
     cmd_val_max = 1.0
     cmd_val_min = -1.0
 
-    rospy.loginfo(f'Press key: (l)eft, (r)ight, (n)eutral')
+    rospy.loginfo(f'Press key: (l)eft, (r)ight, (n)eutral, (f)orward, (b)ackward, (s)top')
     while not rospy.is_shutdown():
         kb_input = getch.getch()
         if kb_input in CONTROL_KEYS: 
