@@ -1,3 +1,4 @@
 <launch>
-  <node pkg="ros_rc_car" name="servo_controller" type="servo_controller.py" output="screen"/>
+  <node pkg="ros_rc_car" name="steering_controller" type="steering_controller.py" output="screen"/>
+  <node pkg="ros_rc_car" name="throttle_controller" type="throttle_controller.py" output="screen"/>
 </launch>

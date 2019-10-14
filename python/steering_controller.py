@@ -8,12 +8,13 @@ class Servo():
 
     def __init__(self, pin):
         # SG90
-        self.l_max = 2.5
-        self.r_max = 12
+        #self.l_max = 2.5
+        #self.r_max = 12
 
+        # MG996R
         #self.newtral = 6.5
-        #self.l_max = 4.7
-        #self.r_max = 9
+        self.l_max = 4.7
+        self.r_max = 9
         self.pin = pin
 
         self.pwm_range = self.r_max - self.l_max
@@ -36,14 +37,15 @@ class Servo():
         return pwm_cycle
 
     def stop(self):
+        rospy.loginfo('cleanup steering servo')
         self.servo.stop()
         GPIO.cleanup()
 
 
 def main():
     servo = Servo(pin=23)
-    rospy.init_node('servo_controller', anonymous=True)
-    rospy.Subscriber("servo", Float32, servo.callback)
+    rospy.init_node('sterring_controller', anonymous=True)
+    rospy.Subscriber("servo/steering", Float32, servo.callback)
     try:
         rospy.spin()
     finally:
